@@ -1,0 +1,29 @@
+name: Coverage report
+
+on:
+  workflow_call:
+
+jobs:
+  backend:
+    name: 'Backend'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Backend coverage
+        run: echo "coverage update backend"
+
+  frontend:
+    name: 'Frontend'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Frontend coverage
+        run: echo "coverage update frontend"
+
+  e2e:
+    name: 'End-to-end'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: End-to-end coverage
+        run: echo "coverage update e2e"

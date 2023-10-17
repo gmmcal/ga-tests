@@ -1,0 +1,40 @@
+name: Pipeline
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  build:
+    name: Build
+    uses: gmmcal/ga-tests/.github/workflows/build.yaml@main
+
+  deploy:
+    name: Deploy
+    uses: gmmcal/ga-tests/.github/workflows/deploy.yaml@main
+    needs: build
+
+  tests:
+    name: Tests
+    uses: gmmcal/ga-tests/.github/workflows/tests.yaml@main
+    needs: build
+
+  lint:
+    name: Lint
+    uses: gmmcal/ga-tests/.github/workflows/lint.yaml@main
+    needs: build
+
+  security:
+    name: Security
+    uses: gmmcal/ga-tests/.github/workflows/security.yaml@main
+    needs: build
+
+  integration:
+    name: Integration
+    uses: gmmcal/ga-tests/.github/workflows/integration-tests.yaml@main
+    needs: deploy
+
+  coverage:
+    name: Publish coverage
+    uses: gmmcal/ga-tests/.github/workflows/coverage.yaml@main
+    needs: tests

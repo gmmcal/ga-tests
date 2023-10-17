@@ -1,0 +1,13 @@
+name: Integration tests
+
+on:
+  workflow_call:
+
+jobs:
+  tests:
+    name: 'Integration tests on remote'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Run integration tests
+        run: echo "curl http://localhost/v1/heathcheck"

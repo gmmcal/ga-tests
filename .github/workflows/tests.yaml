@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  workflow_call:
+
+jobs:
+  frontend:
+    name: 'Frontend tests'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Run tests
+        run: echo "docker run --rm my-org/my-repo:version run frontend-tests"
+
+      - name: Upload coverage
+        run: echo "save coverage artifact"
+
+  backend:
+    name: 'Backend tests'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Run tests
+        run: echo "docker run --rm my-org/my-repo:version run backend-tests"
+
+      - name: Upload coverage
+        run: echo "save coverage artifact"
+
+  e2e:
+    name: 'End-to-end tests'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Run tests
+        run: echo "docker run --rm my-org/my-repo:version run e2e-tests"
+
+      - name: Upload coverage
+        run: echo "save coverage artifact"

@@ -1,0 +1,13 @@
+name: Deploy Application
+
+on:
+  workflow_call:
+
+jobs:
+  staging:
+    name: 'Staging'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Deploy image
+        run: echo "deploy my-org/my-repo:version"

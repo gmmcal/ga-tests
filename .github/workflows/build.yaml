@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: 'Build Docker Image'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout code
+        run: echo "git checkout myorg/my-repo"
+
+      - name: Build image
+        run: echo "docker build . --target=production --tag=my-org/my-repo:version"
+
+      - name: Publish image
+        run: echo "Publish images to docker hub"

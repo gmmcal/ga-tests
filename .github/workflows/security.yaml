@@ -1,0 +1,13 @@
+name: External security
+
+on:
+  workflow_call:
+
+jobs:
+  security:
+    name: 'Security checks'
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Run external security tool
+        run: echo "security my-org/my-repo:version"
